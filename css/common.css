@@ -20,7 +20,7 @@
   background-size: 100% 100%;
   text-indent: -999px;
   overflow: hidden;
-  margin-right: 25px;
+  margin-right: 40px;
 }
 
 .container {
@@ -37,7 +37,7 @@
 .container .menu>li {
   position: relative;
   border-bottom: 3px solid transparent;
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
 .container .menu>li:hover {
@@ -46,7 +46,7 @@
 
 .container .menu>li>a {
   display: block;
-  width: 46px;
+  width: 55px;
   height: 67.99px;
   line-height: 69.99px;
   text-indent: 5px;
@@ -54,17 +54,39 @@
   font-size: 18px;
 }
 
+/* 中心旋转的话应该用图片的，用成图标了，遗憾离场 */
+.container .menu>li>a i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-45%);
+  right: -3px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  transition: all 0.3s;
+  transform-origin: center center;
+  /* 加了个这个就可以转了 */
+  pointer-events: none;
+}
+
+.container .menu>li:hover>a i {
+  transform: translateY(-50%) rotate(180deg);
+}
 
 .container .dropdown-content {
   position: absolute;
   top: calc(100% + 3px);
   left: 0;
   background: #1e202f;
+  /* ？ */
   opacity: 0;
-  /* 透明 */
   visibility: hidden;
-  /* 隐藏 */
   transition: all 0.3s ease-in-out;
+}
+
+.container .dropdown-content img {
+  width: 100px;
+  height: 100px;
 }
 
 .container .dropdown-content li a {
@@ -136,4 +158,55 @@
   line-height: 34.99px;
   color: #fff;
   background: #393b4d;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  z-index: 9999;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(73px);
+}
+
+
+.sidebar li a:hover {
+  transform: translateX(-73px);
+}
+
+.sidebar li a {
+  display: block;
+  width: 130px;
+  display: flex;
+}
+
+/* 为什么不能用class 选择器？ */
+.sidebar li .box {
+  width: 57px;
+  height: 50px;
+  background: url(../img/side.jpg) no-repeat;
+  background-size: 550px 630px;
+  background-position: -250px -82px;
+}
+
+.sidebar li .box1 {
+  background-position: -250px -137px;
+}
+
+.sidebar li .box2 {
+  background-position: -250px -190px;
+}
+
+.sidebar li .box3 {
+  background-position: -250px -250px;
+}
+
+.sidebar li .box4 {
+  background-position: -250px -305px;
+}
+
+.sidebar li img {
+  height: 50px;
+  width: 73px;
 }
